@@ -10,7 +10,7 @@ export default function Logo({ scale = 1 }: { scale?: number }) {
         <text x="36" y="45" fontWeight="800" fontSize="42" letterSpacing="0">ALESNIX</text>
         
         {/* Subtitle */}
-        <text x="2" y="65" fontWeight="500" fontSize="11" letterSpacing="0.5" fill="#0c544c">AI POWERED CONVERSATIONS &amp; SALES</text>
+        <text x="2" y="65" fontWeight="500" fontSize="11" letterSpacing="0.5" fill="#6b7280">AI POWERED CONVERSATIONS &amp; SALES</text>
       </g>
 
       {/* Signal Waves on the 'S' */}

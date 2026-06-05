@@ -24,8 +24,8 @@ function NodeIcon({ node }: { node: FlowNode }) {
   const { cx, type } = node;
   if (type === "person") return (
     <g>
-      <circle cx={cx} cy={CY - 13} r={7.5} fill="rgba(255,255,255,0.8)"/>
-      <path d={`M ${cx-13} ${CY+6} Q ${cx-11} ${CY-2} ${cx} ${CY-2} Q ${cx+11} ${CY-2} ${cx+13} ${CY+6}`} fill="rgba(255,255,255,0.8)"/>
+      <circle cx={cx} cy={CY - 13} r={7.5} fill="rgba(0,0,0,0.6)"/>
+      <path d={`M ${cx-13} ${CY+6} Q ${cx-11} ${CY-2} ${cx} ${CY-2} Q ${cx+11} ${CY-2} ${cx+13} ${CY+6}`} fill="rgba(0,0,0,0.6)"/>
     </g>
   );
   if (type === "chat") return (
@@ -46,10 +46,10 @@ function NodeIcon({ node }: { node: FlowNode }) {
   );
   if (type === "db") return (
     <g>
-      <ellipse cx={cx} cy={CY-11} rx="12" ry="4" fill="rgba(255,255,255,0.7)"/>
-      <rect x={cx-12} y={CY-11} width="24" height="22" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5"/>
-      <ellipse cx={cx} cy={CY+11} rx="12" ry="4" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.4)" strokeWidth="1"/>
-      <ellipse cx={cx} cy={CY} rx="12" ry="2.5" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="1"/>
+      <ellipse cx={cx} cy={CY-11} rx="12" ry="4" fill="rgba(0,0,0,0.5)"/>
+      <rect x={cx-12} y={CY-11} width="24" height="22" fill="rgba(0,0,0,0.05)" stroke="var(--border)" strokeWidth="1.5"/>
+      <ellipse cx={cx} cy={CY+11} rx="12" ry="4" fill="rgba(0,0,0,0.08)" stroke="rgba(0,0,0,0.15)" strokeWidth="1"/>
+      <ellipse cx={cx} cy={CY} rx="12" ry="2.5" fill="none" stroke="rgba(0,0,0,0.1)" strokeWidth="1"/>
     </g>
   );
   if (type === "check") return (
@@ -116,15 +116,15 @@ export default function FlowDiagram() {
               />
             )}
             <circle cx={node.cx} cy={CY} r={node.r}
-              fill={node.center ? "rgba(23,168,153,0.1)" : "rgba(255,255,255,0.03)"}
-              stroke={node.center ? "#17A899" : "rgba(255,255,255,0.15)"}
+              fill={node.center ? "rgba(23,168,153,0.1)" : "rgba(0,0,0,0.03)"}
+              stroke={node.center ? "#17A899" : "var(--border)"}
               strokeWidth={node.center ? "2" : "1"}
             />
             <NodeIcon node={node}/>
             <text
               x={node.cx} y={CY + node.r + 24}
               textAnchor="middle"
-              fill={node.center ? "#fff" : "rgba(255,255,255,0.6)"}
+              fill={node.center ? "var(--text-main)" : "var(--text-muted)"}
               fontSize="13" fontFamily="Inter, system-ui"
               fontWeight={node.center ? "700" : "500"}
             >

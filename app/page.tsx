@@ -1,9 +1,16 @@
+import Image from "next/image";
 import Logo from "@/components/Logo";
 import FlowDiagram from "@/components/FlowDiagram";
 import IntegrationDiagram from "@/components/IntegrationDiagram";
 import ConversationFlow from "@/components/ConversationFlow";
 import Nav from "@/components/Nav";
 import WhatsAppPhone from "@/components/WhatsAppPhone";
+import QuickGuide from "@/components/QuickGuide";
+import ResultsMetrics from "@/components/ResultsMetrics";
+import RevenueLoss from "@/components/RevenueLoss";
+import FlickeringGrid from "@/components/FlickeringGrid";
+import Marquee from "@/components/Marquee";
+import ShimmerButton from "@/components/ShimmerButton";
 
 const CAPS = [
   {
@@ -86,20 +93,17 @@ export default function Home() {
       <Nav/>
 
       {/* HERO */}
-      <section className="hero" id="home">
+      <section className="hero" id="home" style={{ position: "relative" }}>
+        <FlickeringGrid />
         <div className="container">
           <div className="hero-inner">
             <div>
-              <div className="hero-badge">
-                <div className="badge-pulse"/>
-                AI Voice &amp; Text on WhatsApp
-              </div>
               <h1>Automate your sales.<br/>Close on <span className="text-brand-gradient">WhatsApp.</span></h1>
               <p className="hero-sub">
-                Salesnix deploys autonomous AI agents inside WhatsApp. They take voice &amp; text orders, qualify leads, and sync with your CRM—24/7.
+                Salesnix deploys autonomous agents inside WhatsApp. They take voice &amp; text orders, qualify leads, and sync with your CRM—24/7.
               </p>
               <div className="hero-ctas">
-                <button className="btn btn-teal">Start Building For Free</button>
+                <ShimmerButton>Experience in 3 Clicks!</ShimmerButton>
                 <button className="btn btn-ghost">Book Demo</button>
               </div>
             </div>
@@ -107,6 +111,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* REVENUE LOSS (Pain Points) */}
+      <RevenueLoss />
 
       {/* FLOW DIAGRAM */}
       <section className="flow-section" id="flow">
@@ -129,7 +136,7 @@ export default function Home() {
               <span className="eyebrow">Natural Interactions</span>
               <h2 className="section-title" style={{ marginBottom: "1.5rem" }}>Conversations that feel <span className="text-gradient">human.</span></h2>
               <p style={{ color: "var(--text-muted)", fontSize: "1.1rem", marginBottom: "2rem" }}>
-                Our AI doesn't just parse text; it understands intent, sentiment, and context. It handles interruptions, multi-turn conversations, and switches between voice and text seamlessly.
+                Our AI doesn&apos;t just parse text; it understands intent, sentiment, and context. It handles interruptions, multi-turn conversations, and switches between voice and text seamlessly.
               </p>
               <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "1rem", color: "var(--text-muted)" }}>
                 <li style={{ display: "flex", alignItems: "center", gap: "10px" }}><span style={{ color: "var(--brand)" }}>✓</span> Voice-to-text accuracy</li>
@@ -143,6 +150,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* QUICK GUIDE (Setup) */}
+      <QuickGuide />
 
       {/* CAPABILITIES */}
       <section className="caps-section" id="capabilities">
@@ -163,17 +173,37 @@ export default function Home() {
         </div>
       </section>
 
-      {/* INTEGRATION DIAGRAM */}
-      <section className="flow-section">
+      {/* INTEGRATION DIAGRAM & MARQUEE */}
+      <section className="flow-section" style={{ paddingBottom: "2rem" }}>
         <div className="container">
           <div className="section-title-wrap">
             <span className="eyebrow">Seamless Sync</span>
             <h2 className="section-title">Connects with your <span className="text-gradient">entire stack.</span></h2>
           </div>
-          <div className="flow-diagram-container">
+          <div className="flow-diagram-container" style={{ marginBottom: "4rem" }}>
             <IntegrationDiagram />
           </div>
         </div>
+
+        {/* MARQUEE */}
+        <Marquee pauseOnHover>
+          <div className="marquee-logos">
+            {[
+              { src: "/logos/whatsapp.svg",   alt: "WhatsApp"   },
+              { src: "/logos/salesforce.svg", alt: "Salesforce" },
+              { src: "/logos/hubspot.svg",    alt: "HubSpot"    },
+              { src: "/logos/shopify.svg",    alt: "Shopify"    },
+              { src: "/logos/zoho.svg",       alt: "Zoho"       },
+              { src: "/logos/stripe.svg",     alt: "Stripe"     },
+              { src: "/logos/razorpay.svg",   alt: "Razorpay"   },
+            ].map((logo) => (
+              <div key={logo.alt} className="marquee-logo-item">
+                <Image src={logo.src} alt={logo.alt} width={32} height={32} unoptimized />
+                <span>{logo.alt}</span>
+              </div>
+            ))}
+          </div>
+        </Marquee>
       </section>
 
       {/* STATS */}
@@ -190,15 +220,27 @@ export default function Home() {
         </div>
       </section>
 
+      {/* RESULTS METRICS (Value Add) */}
+      <section className="metrics-section">
+        <div className="container">
+          <div className="section-title-wrap">
+            <span className="eyebrow">The ROI</span>
+            <h2 className="section-title">Results with <span className="text-brand-gradient">Salesnix</span></h2>
+            <p style={{color: "var(--text-muted)", marginTop: "1rem"}}>Outperforming human field force across all KPIs</p>
+          </div>
+          <ResultsMetrics />
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="cta-section" id="contact">
         <div className="bg-glow-blob" style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '60vw', height: '60vw', background: 'rgba(23,168,153,0.2)' }} />
         <div className="container">
           <div className="cta-wrap">
-            <h2>Ready to put your sales on autopilot?</h2>
-            <p>Deploy your first AI agent in minutes. No coding required.</p>
+            <h2>Ready to transform your sales operations?</h2>
+            <p>Deploy your dedicated enterprise agent in minutes and start capturing lost revenue.</p>
             <div className="cta-row">
-              <input type="email" className="cta-input" placeholder="Enter your email address"/>
+              <input type="email" className="cta-input" placeholder="Enter your work email"/>
               <button className="btn btn-teal">Get Started Free</button>
             </div>
           </div>

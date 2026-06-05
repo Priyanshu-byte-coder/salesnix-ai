@@ -18,15 +18,15 @@ export default function ConversationFlow() {
       {/* Human Node */}
       <div style={{ 
         alignSelf: 'flex-end', 
-        background: activeNode === 0 || activeNode === 2 ? 'var(--brand)' : 'rgba(255,255,255,0.05)',
-        color: activeNode === 0 || activeNode === 2 ? '#fff' : 'var(--text-muted)',
+        background: activeNode === 0 || activeNode === 2 ? 'var(--brand)' : 'rgba(0,0,0,0.03)',
+        color: activeNode === 0 || activeNode === 2 ? '#fff' : 'var(--text-main)',
         padding: '1rem 1.5rem', 
         borderRadius: '20px 20px 0 20px',
         maxWidth: '80%',
         transition: 'all 0.5s ease',
         transform: activeNode === 0 || activeNode === 2 ? 'scale(1.02)' : 'scale(1)',
         boxShadow: activeNode === 0 || activeNode === 2 ? '0 10px 25px rgba(23,168,153,0.4)' : 'none',
-        border: '1px solid rgba(255,255,255,0.1)'
+        border: '1px solid var(--border)'
       }}>
         <div style={{ fontSize: '0.8rem', opacity: 0.8, marginBottom: '4px' }}>Human</div>
         <div style={{ fontWeight: 500 }}>
@@ -62,15 +62,15 @@ export default function ConversationFlow() {
       {/* AI Node */}
       <div style={{ 
         alignSelf: 'flex-start', 
-        background: activeNode === 1 || activeNode === 3 ? 'var(--bg-panel)' : 'rgba(255,255,255,0.05)',
+        background: activeNode === 1 || activeNode === 3 ? 'var(--bg-panel)' : 'rgba(0,0,0,0.03)',
         color: activeNode === 1 || activeNode === 3 ? 'var(--text-main)' : 'var(--text-muted)',
         padding: '1rem 1.5rem', 
         borderRadius: '20px 20px 20px 0',
         maxWidth: '80%',
         transition: 'all 0.5s ease',
         transform: activeNode === 1 || activeNode === 3 ? 'scale(1.02)' : 'scale(1)',
-        boxShadow: activeNode === 1 || activeNode === 3 ? '0 10px 25px rgba(0,0,0,0.5)' : 'none',
-        border: activeNode === 1 || activeNode === 3 ? '1px solid var(--border-brand)' : '1px solid rgba(255,255,255,0.1)'
+        boxShadow: activeNode === 1 || activeNode === 3 ? '0 10px 25px rgba(0,0,0,0.1)' : 'none',
+        border: activeNode === 1 || activeNode === 3 ? '1px solid var(--border-brand)' : '1px solid var(--border)'
       }}>
         <div style={{ fontSize: '0.8rem', color: 'var(--brand)', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '6px' }}>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>

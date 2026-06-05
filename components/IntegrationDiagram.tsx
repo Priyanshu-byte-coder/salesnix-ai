@@ -1,76 +1,99 @@
 "use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
+import Image from "next/image";
+
+const INTEGRATIONS = [
+  { name: "WhatsApp",   logo: "/logos/whatsapp.svg",   color: "#25D366" },
+  { name: "Salesforce", logo: "/logos/salesforce.svg", color: "#00A1E0" },
+  { name: "HubSpot",    logo: "/logos/hubspot.svg",    color: "#FF7A59" },
+  { name: "Zoho",       logo: "/logos/zoho.svg",       color: "#E42527" },
+  { name: "Stripe",     logo: "/logos/stripe.svg",     color: "#635BFF" },
+  { name: "Razorpay",   logo: "/logos/razorpay.svg",   color: "#0C2451" },
+  { name: "Shopify",    logo: "/logos/shopify.svg",    color: "#7AB55C" },
+];
 
 export default function IntegrationDiagram() {
-  const [activePath, setActivePath] = useState(0);
+  const [active, setActive] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setActivePath((prev) => (prev + 1) % 3);
-    }, 2000);
-    return () => clearInterval(interval);
+    const id = setInterval(() => setActive((p) => (p + 1) % INTEGRATIONS.length), 1800);
+    return () => clearInterval(id);
   }, []);
 
-  const getPathStyle = (index: number) => ({
-    stroke: activePath === index ? "var(--brand)" : "rgba(255,255,255,0.1)",
-    strokeWidth: activePath === index ? "3" : "2",
-    filter: activePath === index ? "drop-shadow(0 0 8px rgba(23,168,153,0.6))" : "none",
-    transition: "all 0.5s ease"
-  });
-
-  const getBoxStyle = (index: number) => ({
-    fill: activePath === index ? "rgba(23,168,153,0.1)" : "rgba(255,255,255,0.03)",
-    stroke: activePath === index ? "var(--brand)" : "rgba(255,255,255,0.1)",
-    strokeWidth: activePath === index ? "2" : "1",
-    transition: "all 0.5s ease"
-  });
+  // Place nodes in a circle around center
+  const cx = 50; // % from left
+  const cy = 50; // % from top
+  const rx = 38; // % radius x
+  const ry = 42; // % radius y
 
   return (
-    <div style={{ width: '100%', position: 'relative' }}>
-      <svg viewBox="0 0 800 300" style={{ width: '100%', height: 'auto', display: 'block' }}>
-        
-        {/* Salesnix Core Node */}
-        <rect x="300" y="100" width="200" height="100" rx="16" fill="rgba(23,168,153,0.15)" stroke="var(--brand)" strokeWidth="2" />
-        <text x="400" y="145" fill="#fff" fontSize="22" fontWeight="700" textAnchor="middle">Salesnix AI</text>
-        <text x="400" y="170" fill="var(--brand)" fontSize="14" textAnchor="middle">Brain</text>
-        
-        {/* Paths */}
-        {/* To CRM */}
-        <path d="M500 130 C 580 130, 600 80, 650 80" fill="none" {...getPathStyle(0)} strokeDasharray="6 6" />
-        <circle cx="500" cy="130" r="4" fill="var(--brand)" opacity={activePath === 0 ? 1 : 0} />
-        
-        {/* To ERP */}
-        <path d="M500 150 L 650 150" fill="none" {...getPathStyle(1)} strokeDasharray="6 6" />
-        <circle cx="500" cy="150" r="4" fill="var(--brand)" opacity={activePath === 1 ? 1 : 0} />
-        
-        {/* To Payment */}
-        <path d="M500 170 C 580 170, 600 220, 650 220" fill="none" {...getPathStyle(2)} strokeDasharray="6 6" />
-        <circle cx="500" cy="170" r="4" fill="var(--brand)" opacity={activePath === 2 ? 1 : 0} />
-        
-        {/* Input Path */}
-        <path d="M150 150 L 300 150" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="2" />
-        <circle cx="225" cy="150" r="6" fill="var(--brand)">
-          <animate attributeName="opacity" values="0.2;1;0.2" dur="2s" repeatCount="indefinite" />
-        </circle>
-
-        {/* External Nodes */}
-        {/* Input */}
-        <rect x="50" y="120" width="100" height="60" rx="12" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" />
-        <text x="100" y="155" fill="#a1a1aa" fontSize="16" fontWeight="500" textAnchor="middle">WhatsApp</text>
-
-        {/* CRM */}
-        <rect x="650" y="50" width="100" height="60" rx="12" {...getBoxStyle(0)} />
-        <text x="700" y="85" fill={activePath === 0 ? "#fff" : "#a1a1aa"} fontSize="16" fontWeight="500" textAnchor="middle" style={{ transition: 'fill 0.5s' }}>CRM</text>
-
-        {/* ERP */}
-        <rect x="650" y="120" width="100" height="60" rx="12" {...getBoxStyle(1)} />
-        <text x="700" y="155" fill={activePath === 1 ? "#fff" : "#a1a1aa"} fontSize="16" fontWeight="500" textAnchor="middle" style={{ transition: 'fill 0.5s' }}>ERP / DB</text>
-
-        {/* Payment */}
-        <rect x="650" y="190" width="100" height="60" rx="12" {...getBoxStyle(2)} />
-        <text x="700" y="225" fill={activePath === 2 ? "#fff" : "#a1a1aa"} fontSize="16" fontWeight="500" textAnchor="middle" style={{ transition: 'fill 0.5s' }}>Stripe</text>
+    <div className="int-diagram">
+      {/* SVG lines layer */}
+      <svg className="int-svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+        {INTEGRATIONS.map((_, i) => {
+          const angle = (i / INTEGRATIONS.length) * 2 * Math.PI - Math.PI / 2;
+          const x = cx + rx * Math.cos(angle);
+          const y = cy + ry * Math.sin(angle);
+          const isActive = active === i;
+          return (
+            <line
+              key={i}
+              x1={cx} y1={cy}
+              x2={x} y2={y}
+              stroke={isActive ? INTEGRATIONS[i].color : "rgba(0,0,0,0.1)"}
+              strokeWidth={isActive ? "0.6" : "0.3"}
+              strokeDasharray={isActive ? "2 1" : "1.5 2"}
+              style={{ transition: "all 0.5s ease" }}
+            />
+          );
+        })}
+        {/* Animated dot on active line */}
+        {(() => {
+          const i = active;
+          const angle = (i / INTEGRATIONS.length) * 2 * Math.PI - Math.PI / 2;
+          const x = cx + rx * Math.cos(angle);
+          const y = cy + ry * Math.sin(angle);
+          return (
+            <circle r="1.2" fill={INTEGRATIONS[i].color}>
+              <animateMotion
+                dur="1.8s"
+                repeatCount="indefinite"
+                path={`M ${cx} ${cy} L ${x} ${y}`}
+              />
+            </circle>
+          );
+        })()}
       </svg>
+
+      {/* Hub center */}
+      <div className="int-hub">
+        <span className="int-hub-text">Salesnix</span>
+        <span className="int-hub-sub">AI</span>
+      </div>
+
+      {/* Orbital nodes */}
+      {INTEGRATIONS.map((item, i) => {
+        const angle = (i / INTEGRATIONS.length) * 2 * Math.PI - Math.PI / 2;
+        const x = cx + rx * Math.cos(angle);
+        const y = cy + ry * Math.sin(angle);
+        const isActive = active === i;
+        return (
+          <div
+            key={item.name}
+            className={`int-node${isActive ? " int-node--active" : ""}`}
+            style={{
+              left: `${x}%`,
+              top: `${y}%`,
+              "--node-color": item.color,
+              boxShadow: isActive ? `0 0 0 3px ${item.color}33, 0 4px 16px ${item.color}22` : undefined,
+            } as React.CSSProperties}
+          >
+            <Image src={item.logo} alt={item.name} width={28} height={28} unoptimized />
+            <span className="int-node-label">{item.name}</span>
+          </div>
+        );
+      })}
     </div>
   );
 }

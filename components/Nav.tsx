@@ -19,8 +19,7 @@ export default function Nav() {
             <li><a href="#capabilities">Features</a></li>
             <li><a href="#contact">Pricing</a></li>
           </ul>
-          <div className="nav-right">
-            <a href="#" className="nav-login">Sign in</a>
+          <div className="nav-right" style={{ display: "flex", gap: "1.5rem", alignItems: "center" }}>
             <button className="btn btn-teal" style={{ padding: "0.62rem 1.3rem", fontSize: "0.875rem" }}>
               Book a Demo
             </button>
