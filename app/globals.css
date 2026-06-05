@@ -114,7 +114,8 @@ nav.scrolled {
   border-bottom-color: var(--border-light);
   box-shadow: 0 1px 0 var(--border-light);
 }
-.nav-inner { display: flex; align-items: center; width: 100%; }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+.nav-logo { flex: 0 1 240px; display: flex; align-items: center; min-width: 150px; }
 .nav-links { display: flex; gap: 2.5rem; list-style: none; margin: 0 auto; }
 .nav-links a { font-size: 0.95rem; font-weight: 500; color: var(--text-muted); transition: color 0.2s; }
 .nav-links a:hover { color: var(--brand); }
@@ -865,15 +866,15 @@ footer { padding: 3rem 0; border-top: 1px solid var(--border-light); background:
 }
 .shimmer-btn-glow {
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0; left: -100%; width: 50%; height: 100%;
   z-index: 1;
-  background: linear-gradient(120deg, transparent, rgba(23,168,153, 0.6), transparent);
-  background-size: 200% 100%;
-  animation: shimmerAnim 2.5s infinite;
+  background: linear-gradient(90deg, transparent, rgba(23,168,153, 0.6), transparent);
+  transform: skewX(-20deg);
+  animation: shimmerAnim 2.5s infinite linear;
 }
 @keyframes shimmerAnim {
-  0% { background-position: -100% 0; }
-  100% { background-position: 200% 0; }
+  0% { left: -100%; }
+  100% { left: 200%; }
 }
 
 /* Border Beam */
@@ -900,5 +901,179 @@ footer { padding: 3rem 0; border-top: 1px solid var(--border-light); background:
 }
 @keyframes spinBeam {
   100% { transform: rotate(360deg); }
+}
+
+/* =========================================
+   HAMBURGER (hidden on desktop)
+   ========================================= */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 110;
+}
+.hamburger-line {
+  display: block;
+  width: 24px;
+  height: 2.5px;
+  background: var(--text-main);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.hamburger-line.open:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+.hamburger-line.open:nth-child(2) { opacity: 0; }
+.hamburger-line.open:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+/* =========================================
+   MOBILE RESPONSIVE — 768px and below
+   ========================================= */
+@media (max-width: 768px) {
+  /* ---- Nav / Hamburger ---- */
+  .nav-hamburger { display: flex; }
+  nav { height: 64px; }
+  .nav-logo svg { width: 200px; height: 54px; }
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 64px; left: 0; right: 0;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    padding: 1.5rem 2rem;
+    gap: 0;
+    border-bottom: 1px solid var(--border-light);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    z-index: 99;
+  }
+  .nav-links--open { display: flex; }
+  .nav-links li { list-style: none; }
+  .nav-links a {
+    display: block;
+    padding: 0.9rem 0;
+    font-size: 1.05rem;
+    border-bottom: 1px solid var(--border-light);
+  }
+  .nav-links li:last-child a { border-bottom: none; }
+  .nav-right { margin-left: auto; }
+
+  /* ---- Container ---- */
+  .container { padding: 0 1.25rem; }
+
+  /* ---- Hero ---- */
+  .hero { padding: 5.5rem 0 3rem; min-height: auto; }
+  .hero-inner { gap: 2.5rem; }
+  .hero h1 { font-size: clamp(2rem, 8vw, 3rem); }
+  .hero-sub { font-size: 1rem; }
+  .hero-ctas { flex-direction: column; gap: 0.75rem; }
+  .hero-ctas .btn { width: 100%; justify-content: center; }
+
+  /* ---- Phone ---- */
+  .phone-scene { perspective: none; }
+  .phone {
+    width: 240px; height: 500px;
+    transform: none !important;
+    animation: none !important;
+    border-radius: 36px;
+  }
+  .phone-glow { width: 280px; height: 280px; }
+
+  /* ---- Sections general ---- */
+  .section-title-wrap { margin-bottom: 2.5rem; }
+  .section-title { font-size: clamp(1.6rem, 6vw, 2.2rem); }
+  .eyebrow { font-size: 0.75rem; }
+
+  /* ---- Flow Section ---- */
+  .flow-section { padding: 3.5rem 0; }
+  .flow-diagram-container { padding: 1.5rem; border-radius: 16px; }
+
+  /* ---- Capabilities ---- */
+  .caps-section { padding: 3.5rem 0; }
+  .cap-card { padding: 1.75rem 1.5rem; border-radius: 16px; }
+  .cap-icon { width: 48px; height: 48px; border-radius: 12px; margin-bottom: 1rem; }
+  .cap-label { font-size: 1.1rem; }
+  .cap-desc { font-size: 0.88rem; }
+
+  /* ---- Interaction / Voice ---- */
+  .interaction-section { padding: 3.5rem 0; }
+  .interaction-grid { gap: 2rem; }
+  .voice-visualizer { padding: 2rem 1.5rem; border-radius: 16px; }
+
+  /* ---- Integration Diagram ---- */
+  .int-diagram { max-width: 340px; }
+  .int-hub { width: 72px; height: 72px; }
+  .int-hub-text { font-size: 0.55rem; }
+  .int-hub-sub { font-size: 0.48rem; }
+  .int-node { width: 54px; height: 54px; border-radius: 12px; }
+  .int-node img { width: 22px !important; height: 22px !important; }
+  .int-node-label { font-size: 0.38rem; }
+
+  /* ---- Stats ---- */
+  .stats-section { padding: 3rem 0 5rem; }
+  .stat { padding: 2rem 1.5rem; border-radius: 16px; }
+  .stat-val { font-size: 2.8rem; }
+  .stat-lbl { font-size: 0.85rem; }
+
+  /* ---- Revenue Loss ---- */
+  .revenue-loss-section { padding: 3.5rem 0; }
+  .loss-header h2 { font-size: 1.8rem; }
+  .loss-chart-container { width: 220px; }
+  .danger-card { padding: 1.2rem; }
+  .danger-val { font-size: 1.5rem; }
+  .danger-icon { width: 40px; height: 40px; }
+
+  /* ---- Quick Guide ---- */
+  .quick-guide-section { padding: 3.5rem 0; }
+  .quick-guide-header h2 { font-size: 1.8rem; margin-bottom: 2.5rem; }
+  .qg-step { gap: 1rem; margin-bottom: 1.75rem; }
+  .qg-title { font-size: 1.2rem; }
+  .qg-ctas { flex-direction: column; }
+  .qg-ctas .btn { width: 100%; justify-content: center; }
+
+  /* ---- Results Metrics ---- */
+  .metrics-section { padding: 3rem 0 4rem; }
+  .results-card { padding: 1.5rem 1rem; }
+  .results-val { font-size: 2.5rem; }
+  .results-label { font-size: 0.95rem; }
+
+  /* ---- Marquee ---- */
+  .marquee-logos { gap: 2rem; }
+  .marquee-logo-item span { font-size: 0.85rem; }
+  .marquee-logo-item img { width: 24px !important; height: 24px !important; }
+
+  /* ---- CTA Section ---- */
+  .cta-section { padding: 5rem 0; }
+  .cta-wrap h2 { font-size: clamp(1.8rem, 6vw, 2.5rem); }
+  .cta-row { flex-direction: column; }
+  .cta-input { width: 100%; }
+  .cta-row .btn { width: 100%; justify-content: center; }
+
+  /* ---- Footer ---- */
+  .footer-inner { flex-direction: column; text-align: center; gap: 1rem; }
+  .footer-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+}
+
+/* =========================================
+   SMALL MOBILE — 480px and below
+   ========================================= */
+@media (max-width: 480px) {
+  .container { padding: 0 1rem; }
+  .hero h1 { font-size: 1.75rem; }
+  .hero-sub { font-size: 0.92rem; }
+  .phone { width: 220px; height: 460px; border-radius: 32px; }
+  .section-title { font-size: 1.5rem; }
+  .loss-header h2, .quick-guide-header h2 { font-size: 1.5rem; }
+  .stat-val { font-size: 2.2rem; }
+  .results-val { font-size: 2rem; }
+  .int-diagram { max-width: 280px; }
+  .int-hub { width: 60px; height: 60px; }
+  .int-node { width: 46px; height: 46px; }
+  .int-node img { width: 18px !important; height: 18px !important; }
+  .int-node-label { font-size: 0.32rem; }
+  .marquee-logos { gap: 1.5rem; }
+  .marquee-logo-item span { display: none; }
 }
 
