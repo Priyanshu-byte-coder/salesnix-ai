@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:api.anthropic.com)",
+      "Bash(gunzip -c \"C:\\\\Users\\\\Priyanshu\\\\.claude\\\\projects\\\\C--Users-Priyanshu-OneDrive-Desktop-All-projects-velino-ai-salesnix-ai\\\\fc59e715-f906-4b3c-a617-c21b7b2695b9\\\\tool-results\\\\webfetch-1780645021611-1cchfs.bin\")",
+      "Bash(mkdir -p /tmp/salesnix_design)",
+      "Bash(tar -xzf \"C:\\\\Users\\\\Priyanshu\\\\.claude\\\\projects\\\\C--Users-Priyanshu-OneDrive-Desktop-All-projects-velino-ai-salesnix-ai\\\\fc59e715-f906-4b3c-a617-c21b7b2695b9\\\\tool-results\\\\webfetch-1780645021611-1cchfs.bin\" -C /tmp/salesnix_design)",
+      "Read(//tmp/**)",
+      "Bash(gunzip -c \"C:/Users/Priyanshu/.claude/projects/C--Users-Priyanshu-OneDrive-Desktop-All-projects-velino-ai-salesnix-ai/fc59e715-f906-4b3c-a617-c21b7b2695b9/tool-results/webfetch-1780645021611-1cchfs.bin\")",
+      "Bash(tar -x -C /tmp/salesnix_design)",
+      "Bash(npx create-next-app@latest . --typescript --no-tailwind --eslint --app --no-src-dir --import-alias \"@/*\" --yes)"
+    ]
+  }
+}
