@@ -940,6 +940,8 @@ footer { padding: 3rem 0; border-top: 1px solid var(--border-light); background:
     display: none;
     position: fixed;
     top: 64px; left: 0; right: 0;
+    width: 100%;
+    margin: 0;
     background: rgba(255,255,255,0.97);
     backdrop-filter: blur(20px);
     flex-direction: column;
@@ -947,7 +949,7 @@ footer { padding: 3rem 0; border-top: 1px solid var(--border-light); background:
     gap: 0;
     border-bottom: 1px solid var(--border-light);
     box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-    z-index: 99;
+    z-index: 101;
   }
   .nav-links--open { display: flex; }
   .nav-links li { list-style: none; }
