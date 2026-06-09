@@ -1080,6 +1080,21 @@ footer { padding: 3rem 0; border-top: 1px solid var(--border-light); background:
 }
 
 /* =========================================
+   SKELETON LOADER & ERROR
+   ========================================= */
+@keyframes skeletonPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.db-api-error {
+  display: flex; align-items: center; gap: 0.6rem;
+  background: #fef2f2; border: 1px solid #fca5a5;
+  color: #991b1b; border-radius: 10px;
+  padding: 0.75rem 1rem; font-size: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+
+/* =========================================
    DASHBOARD SHELL
    ========================================= */
 .db-shell {
