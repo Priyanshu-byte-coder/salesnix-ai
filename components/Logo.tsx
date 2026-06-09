@@ -3,7 +3,13 @@ export default function Logo({ scale = 1 }: { scale?: number }) {
   const height = 80 * scale;
 
   return (
-    <svg width={width} height={height} viewBox="0 0 300 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg 
+      viewBox="0 0 300 80" 
+      preserveAspectRatio="xMinYMid meet"
+      fill="none" 
+      xmlns="http://www.w3.org/2000/svg"
+      style={{ display: "block", width: "100%", height: "auto", maxWidth: width }}
+    >
       <g fill="#17A899" fontFamily="Montserrat, Inter, system-ui, sans-serif">
         {/* Main SALESNIX text */}
         <text x="2" y="45" fontWeight="800" fontSize="42" letterSpacing="-1">S</text>

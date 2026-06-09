@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Logo from "./Logo";
 
 const NAV_MAIN = [
   {
@@ -103,18 +104,8 @@ export default function DashboardShell({
       {/* Sidebar */}
       <aside className={`db-sidebar${sidebarOpen ? " db-sidebar--open" : ""}`}>
         <div className="db-sidebar-inner">
-          {/* Brand */}
-          <div className="db-brand">
-            <div className="db-brand-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <circle cx="12" cy="12" r="10" fill="var(--brand)" opacity="0.15"/>
-                <path d="M8 12h8M12 8l4 4-4 4" stroke="var(--brand)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
-            <div>
-              <div className="db-brand-name">Salesnix</div>
-              <div className="db-brand-tag">AI Sales Platform</div>
-            </div>
+          <div className="db-brand" style={{ padding: "0", marginBottom: "1.5rem", marginTop: "0.5rem", display: "flex", justifyContent: "center", width: "100%" }}>
+            <Logo scale={0.65} />
           </div>
 
           {/* Live indicator */}

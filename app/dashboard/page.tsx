@@ -52,14 +52,14 @@ const CONTACTS = [
 ];
 
 const ACTIVITY = [
-  { type: "call",    color: "#17A899", time: "10:23 AM", text: "Outbound call to Rajesh Kumar — Order placed ₹2.4L",       icon: "📞" },
-  { type: "message", color: "#6366f1", time: "10:41 AM", text: "Follow-up message sent to 14 leads in Electronics segment", icon: "💬" },
-  { type: "deal",    color: "#22c55e", time: "11:05 AM", text: "Sunita Patel moved to Proposal stage — ₹3.1L deal",        icon: "🎯" },
-  { type: "call",    color: "#17A899", time: "11:28 AM", text: "Outbound call to Vikram Singh — Demo scheduled",           icon: "📞" },
-  { type: "message", color: "#f59e0b", time: "12:02 PM", text: "Payment link sent to Mohit Joshi — ₹2.9L",                icon: "💳" },
-  { type: "call",    color: "#ef4444", time: "12:45 PM", text: "Missed call from Deepa Nair — Auto-callback scheduled",    icon: "📵" },
-  { type: "deal",    color: "#22c55e", time: "1:14 PM",  text: "Order confirmed — Akash Mehta ₹95K",                       icon: "✅" },
-  { type: "message", color: "#6366f1", time: "2:31 PM",  text: "Sequence 'Pharma Re-engagement' sent to 8 contacts",      icon: "📨" },
+  { type: "call",    color: "#17A899", time: "10:23 AM", text: "Outbound call to Rajesh Kumar — Order placed ₹2.4L",       icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> },
+  { type: "message", color: "#6366f1", time: "10:41 AM", text: "Follow-up message sent to 14 leads in Electronics segment", icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> },
+  { type: "deal",    color: "#22c55e", time: "11:05 AM", text: "Sunita Patel moved to Proposal stage — ₹3.1L deal",        icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg> },
+  { type: "call",    color: "#17A899", time: "11:28 AM", text: "Outbound call to Vikram Singh — Demo scheduled",           icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> },
+  { type: "message", color: "#f59e0b", time: "12:02 PM", text: "Payment link sent to Mohit Joshi — ₹2.9L",                icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg> },
+  { type: "call",    color: "#ef4444", time: "12:45 PM", text: "Missed call from Deepa Nair — Auto-callback scheduled",    icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10.68 13.31a16 16 0 0 0 3.41 2.6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 1.72 2v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.42 19.42 0 0 1-3.33-2.67m-2.67-3.34a19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91"/><line x1="23" y1="1" x2="1" y2="23"/></svg> },
+  { type: "deal",    color: "#22c55e", time: "1:14 PM",  text: "Order confirmed — Akash Mehta ₹95K",                       icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg> },
+  { type: "message", color: "#6366f1", time: "2:31 PM",  text: "Sequence 'Pharma Re-engagement' sent to 8 contacts",      icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> },
 ];
 
 const FOLLOWUPS = [
@@ -96,7 +96,7 @@ export default function DashboardPage() {
       {/* Welcome */}
       <div className="db-welcome">
         <div>
-          <h1 className="db-page-title">Good morning, Priyanshu 👋</h1>
+          <h1 className="db-page-title">Good morning, Priyanshu</h1>
           <p className="db-page-sub">Here&apos;s what your AI agent has been up to today.</p>
         </div>
         <div className="db-welcome-actions">
@@ -195,7 +195,7 @@ export default function DashboardPage() {
                           <div>
                             <div className="db-contact-name">
                               {c.name}
-                              {c.hot && <span className="db-hot-tag">🔥</span>}
+                              {c.hot && <span className="db-hot-tag" title="Hot Lead"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></span>}
                             </div>
                             <div className="db-contact-company">{c.company}</div>
                           </div>
@@ -209,8 +209,8 @@ export default function DashboardPage() {
                       <td className="db-td-value">{c.value}</td>
                       <td>
                         <div className="db-activity-mini">
-                          <span title="Messages">💬 {c.messages}</span>
-                          <span title="Calls">📞 {c.calls}</span>
+                          <span title="Messages" style={{ display: "inline-flex", alignItems: "center", gap: "3px" }}><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> {c.messages}</span>
+                          <span title="Calls" style={{ display: "inline-flex", alignItems: "center", gap: "3px" }}><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> {c.calls}</span>
                         </div>
                       </td>
                       <td className="db-td-muted">{c.last}</td>

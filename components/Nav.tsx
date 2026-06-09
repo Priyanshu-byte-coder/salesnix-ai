@@ -13,7 +13,7 @@ export default function Nav() {
   }, []);
 
   return (
-    <nav className={`${scrolled ? "scrolled" : ""}${menuOpen ? " nav-open" : ""}`}>
+    <nav className={`main-nav ${scrolled ? "scrolled" : ""}${menuOpen ? " nav-open" : ""}`}>
       <div style={{ width: "100%", padding: "0 4%", maxWidth: "1920px", margin: "0 auto" }}>
         <div className="nav-inner">
           <div className="nav-logo">
